@@ -40,7 +40,7 @@
 #   policy = var.dedon_bucket_policy
 # }
 
-resource "aws_s3_bucket" "b" {
+resource "aws_s3_bucket" "sosotech" {
   bucket_prefix = var.bucket_prefix
   acl    = var.acl
 
