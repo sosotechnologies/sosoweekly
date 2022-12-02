@@ -25,4 +25,6 @@ week02
                                                   ├── output.tf
                                                   └── variables.tf
                                     └── ...
+          
+=> Call the module (EX: ec2) using this PATH: source = "../../../../modules/ec2"
                                                 
