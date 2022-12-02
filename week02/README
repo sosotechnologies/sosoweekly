@@ -1,0 +1,4 @@
+ready modules
+ s3, ec2 
+
+ Im using the development environment in this path --> /sosoweekly/week02/client/module-client/development to call my main module folders found in /sosoweekly/week02/modules
