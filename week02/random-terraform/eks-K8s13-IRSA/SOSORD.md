@@ -26,3 +26,6 @@ Resources required for creating IRSA:
 13--> c4-03-irsa-k8s-service-account.tf I created the service account for the job. 
 
 13--> c4-04-irsa-k8s-job.tf  I created a full job, using service account, the role and sample job
+
+
+CREATE a .pem key called [ sosotech-terraform-key ] in the us-east-1 region
