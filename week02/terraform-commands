@@ -4,7 +4,8 @@ terraform -install-autocomplete
 terraform fmt     
 ###format code per HCL canonical standard
 
-terraform validate        ###validate code for syntax
+terraform validate        
+###validate code for syntax
 
 terraform validate -backend=false      
 ###validate code skip backend validation
