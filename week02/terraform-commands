@@ -1,0 +1,57 @@
+terraform -install-autocomplete     
+###Setup tab auto-completion, requires logging back in
+
+terraform fmt     
+###format code per HCL canonical standard
+
+terraform validate        ###validate code for syntax
+
+terraform validate -backend=false      
+###validate code skip backend validation
+
+terraform apply --auto-approve 
+terraform destroy --auto-approve
+
+terraform plan -out plan.out 
+###output the deployment plan to plan.out
+
+terraform apply plan.out 
+###use the plan.out plan file to deploy infrastructure
+
+terraform plan -destroy 
+###outputs a destroy plan
+
+terraform apply -target=aws_instance.my_ec2 
+###only apply/deploy changes to the targeted resource
+
+terraform apply -var my_region_variable=us-east-1 
+###pass a variable via command-line while applying a configuration
+
+terraform apply -lock=true 
+###lock the state file so it can’t be modified by any other Terraform apply or modification action(possible only where backend allows
+terraform refresh 
+
+# Terraform State Manipulation
+terraform state show aws_instance.my_ec2 
+###show details stored in Terraform state for the resource
+
+terraform state pull > terraform.tfstate 
+###download and output terraform state to a file
+
+terraform state mv aws_iam_role.my_ssm_role module.custom_module 
+###move a resource tracked via state to different module
+
+terraform state replace-provider hashicorp/aws registry.custom.com/aws 
+###replace an existing provider with another
+
+terraform state list 
+###list out all the resources tracked via the current state file
+
+terraform state rm  aws_instance.myinstace
+###unmanage a resource, delete it from Terraform state file
+
+terraform taint aws_instance.my_ec2  
+###taints resource to be recreated on next apply
+
+terraform untaint aws_instance.my_ec2 
+###Remove taint from a resource
