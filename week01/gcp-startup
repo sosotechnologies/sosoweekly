@@ -1,0 +1,83 @@
+Windows
+Install chocolatey
+( # )  metadata
+( $ ) commands 
+Run command as an administrator in windows Cmd
+ 
+Firstly
+Install Google-sdk in windows terminal
+$ choco install gcloudsdk
+
+Secondly
+#Configure gcp against the CMD terminal
+#There are 2 options to configure gcp, by using gcloud config or gcloud init.
+#create a folder in the documents folder and work from that folder
+
+Using gcloud config 
+$ gcloud config set project PROJECT_ID
+# gcloud config set project martha-k8s
+$ gcloud config set compute/zone COMPUTE_ZONE 
+$ gcloud config set compute/region us-east4   //set the COMPUTE_REGION
+$ gcloud components update   (optional)
+$ gcloud auth login
+
+
+Using gcloud init and SDK authenticatet     
+$ gcloud init      //then follow the steps
+gcloud init ( optional)--console-only
+$ gcloud auth login
+
+To view your projects and switch to a new project in cli
+$ gcloud auth list                        //this will give you the list of accounts you are configured to
+$ gcloud projects list                //will get the list of projects
+# Supposedly your output list after running “gcloud projects list” is:
+
+PROJECT_ID                                                  NAME                                           PROJECT_NUMBER
+touchdown-baby-1010                  terraform-project                                123456789
+common-fly-collins1112                ansible-project1                                  323453456
+# If you want to work on the ‘touchdown-baby-1010’, run command gcloud config set project [project_ID]
+$ gcloud config set project my-ssn-numberis-1010 
+           
+Next
+#to work on k8s in windows
+#Install kubectl in windows
+$ choco install kubernetes-cli
+$ choco install kubens
+$ choco install kubectx
+
+           OR
+$ gcloud components install kubectl
+
+  NEXT
+ create a Kubernetes cluster. Move to visual code, it’s ideal  (code .)
+#Configure kubernetes configuration file
+#If creating a cluster names my-cluster
+ #If cluster already exist, copy the cluster code and paste here
+
+# create a zonal Kubernetes cluster called tesla-cluster in zone us-west2-a
+$ gcloud container clusters create tesla-cluster --zone us-west2-a
+ 
+CLUSTER_NAME=persistent-disk-tutorial
+gcloud container clusters create persistent-disk-tutorial --num-nodes=3 --enable-autoupgrade --no-enable-basic-auth --no-issue-client-certificate --enable-ip-alias --metadata \disable-legacy-endpoints=true
+
+gcloud container clusters create persistent-disk-tutorial1 --num-nodes 3 --zone=us-central1-b --enable-autoupgrade --no-enable-basic-auth --no-issue-client-certificate --enable-ip-alias --metadata \disable-legacy-endpoints=true
+
+
+# create a zonal standard Kubernetes cluster called persistent-disk-tutorial
+gcloud container clusters create persistent-disk-tutorial --num-nodes 3 --zone=us-central1-b --enable-autoupgrade --no-enable-basic-auth --no-issue-client-certificate --enable-ip-alias
+
+
+# create a zonal standard Kubernetes cluster called tesla-cluster1 in zone us-central1-b and specify the number of nodes. Will create 3 vm instances and a cluster
+$ gcloud container clusters create tesla-cluster --machine-type n1-standard-2 --num-nodes 1 --zone=us-central1-b --cluster-version latest  
+
+#create an autopilot public cluster called tesla-cluster – switch to code . and  run in bash
+$ gcloud container clusters create-auto tesla-cybertruck -–region=us-central1 --project= ihaveadream
+
+$ gcloud container clusters create-auto tesla-cluster --region=us-central1 --project=ihaveadream
+
+# Get the autopilot cluster credentials
+$ gcloud container clusters get-credentials tesla-cluster --region us-central1 --project advance-engine-323116 -
+
+#get the nodes running in the cluster
+$ kubectl get nodes
+
