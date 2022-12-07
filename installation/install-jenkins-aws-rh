@@ -1,0 +1,27 @@
+# Sosotech DevOps Project
+## Run as single commands
+
+### Install Jenkins in RHEL and AWS
+sudo su -
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+
+sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+sudo amazon-linux-extras install epel
+
+### (Optional) version to install, java-openjdk11, version I got
+amazon-linux-extras
+
+amazon-linux-extras install java-openjdk11
+
+yum install Jenkins
+
+service jenkins status
+
+service jenkins start
+
+cat /var/lib/jenkins/secrets/initialAdminPassword
+
+#### chkconfig jenkins on
+#### systemctl enable jenkins.service
