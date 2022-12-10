@@ -1,0 +1,3 @@
+### AWS Creds
+vi ~/.aws/credentials 
+vi ~/.aws/config 
