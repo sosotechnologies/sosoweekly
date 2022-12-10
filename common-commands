@@ -1,3 +1,13 @@
 ### AWS Creds
 vi ~/.aws/credentials 
 vi ~/.aws/config 
+
+### change server hostname
+vi /etc/hostname
+init 6
+
+# LINUX
+### Find example, finding name sosofile.xml
+find / -name sosofile.xml
+
+
