@@ -10,4 +10,7 @@ init 6
 ### Find example, finding name sosofile.xml
 find / -name sosofile.xml
 
+# Curl
+kubectl run mycurlpod --image=curlimages/curl -i --tty -- sh
+curl https://api.aakhilv.me/fun/facts
 
