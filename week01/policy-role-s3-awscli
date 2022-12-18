@@ -1,0 +1,44 @@
+https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_PostgreSQL.S3Import.html
+
+# policy
+aws iam create-policy --policy-name rds-s3-import-policy --policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Sid": "s3import",
+         "Action": [
+           "s3:GetObject",
+           "s3:ListBucket"
+         ], 
+         "Effect": "Allow",
+         "Resource": [
+           "arn:aws:s3:::soso-bucket1", 
+           "arn:aws:s3:::soso-bucket1/*"
+         ] 
+       }
+     ] 
+   }'             
+
+
+# Role
+aws iam create-role --role-name rds-s3-import-role --assume-role-policy-document '{
+     "Version": "2012-10-17",
+     "Statement": [
+       {
+         "Effect": "Allow",
+         "Principal": {
+            "Service": "rds.amazonaws.com"
+          },
+         "Action": "sts:AssumeRole",
+         "Condition": {
+             "StringEquals": {
+                "aws:SourceAccount": "368085106192",
+                "aws:SourceArn": "arn:aws:rds:us-east-1:368085106192:db:dbname"
+                }
+             }
+       }
+     ] 
+   }'
+
+# attach policy
+aws iam attach-role-policy --policy-arn arn:aws:iam::368085106192:policy/rds-s3-import-policy --role-name rds-s3-import-role                    
