@@ -1,0 +1,4 @@
+https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html
+
+
+# Amazon EKS uses IAM to provide authentication to your Kubernetes cluster through the AWS IAM authenticator for Kubernetes
